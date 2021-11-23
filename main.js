@@ -32,7 +32,7 @@ class Card {
         this.suit = suit
         this.value = cardValues[ name ]
         this.symbol = symbols[ suit ]
-        this.color = generateColor( suit )
+        this.color = Card.generateColor( suit )
     }
 
     display() {

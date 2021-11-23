@@ -53,3 +53,23 @@
  * 
  * 
  */
+
+
+const hands = [ { id: 1 }, { id: 2 } ]
+
+let handex = hands.findIndex( hand => hand.id === 1 )
+// expect 0
+
+
+let temp
+let newHand = { id: 3 }
+for ( let i = handex; i < hands.length; i++ ) {
+    if ( i === handex ) {
+        temp = hands[ i ]
+        hands[ i ] = newHand
+    } else {
+
+    }
+}
+
+console.log( hands )
