@@ -23,37 +23,7 @@ const cardSuits = [ 'SPADE', 'CLUB', 'HEART', 'DIAMOND' ]
 
 
 
-const generateColor = suit => {
-    // a switch statement, kinda like an if statement
-    // basically takes an argument ( suit ) and based on the value
-    // of the argument, performs several actions
-    
-    // in our case, it is returning a function "colors.bgWhite.red" if the argument is a string and
-    // has a value that is equal to either 'HEART' or 'DIAMOND' or "colors.bgWhite.black" if the value is
-    // a string with a value equal to 'SPADE' or 'CLUB'
-    switch ( suit ) {
-        case 'HEART':
-        case 'DIAMOND':
-            return colors.bgWhite.red;
-
-        case 'SPADE':
-        case 'CLUB':
-            return colors.bgWhite.black
-
-        default: {
-
-            //! might be a bad idea to use 'throw' to use it correctly we'd have to wrap shit in 'try{}catch{}' blocks and that sounds annoying...
-            if ( typeof suit != 'string' ) {
-                throw new Error('Invalid data type given. Must be a string.')
-            }
-
-            if ( !cardSuits.includes( suit ) ) {
-                throw new Error('String does match and valid suites.')
-            }
-        }
-            
-    }
-}
+const 
 
 
 class Card {
@@ -68,7 +38,42 @@ class Card {
     display() {
         return this.color( this.name + this.symbol )
     }
+
+
+    static generateColor = suit => {
+        // a switch statement, kinda like an if statement
+        // basically takes an argument ( suit ) and based on the value
+        // of the argument, performs several actions
+        
+        // in our case, it is returning a function "colors.bgWhite.red" if the argument is a string and
+        // has a value that is equal to either 'HEART' or 'DIAMOND' or "colors.bgWhite.black" if the value is
+        // a string with a value equal to 'SPADE' or 'CLUB'
+        switch ( suit ) {
+            case 'HEART':
+            case 'DIAMOND':
+                return colors.bgWhite.red;
+    
+            case 'SPADE':
+            case 'CLUB':
+                return colors.bgWhite.black
+    
+            default: {
+    
+                //! might be a bad idea to use 'throw' to use it correctly we'd have to wrap shit in 'try{}catch{}' blocks and that sounds annoying...
+                if ( typeof suit != 'string' ) {
+                    throw new Error('Invalid data type given. Must be a string.')
+                }
+    
+                if ( !cardSuits.includes( suit ) ) {
+                    throw new Error('String does match and valid suites.')
+                }
+            }
+                
+        }
+    }
 }
+
+
 
 class Ace extends Card {
     constructor( name, suit ) {

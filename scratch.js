@@ -36,17 +36,19 @@
  * deck concerns: needs to have array of cards; be able to shuffle them; to be able to give a card off the "top"
  * 
  * 
- * hand concerns: maintains (0/1) to 5 cards, has a total value, has a bet, can be given funds to increase bet value, has a "bust" boolean triggered when value exceeds 21,
+ * hand concerns: generates a uid when created, maintains (0/1) to 5 cards, has a total value, has a bet, can be given funds to increase bet value, has a "bust" boolean triggered when value exceeds 21,
  *                  can be split and create a new hand, can be doubled down which takes an amount equal to the current bet and then can not accept anymore cards, (locked?)
+ *
  * 
  * 
  * dealer concerns: maintains the deck, can deal a card from the deck, one at a time, to each player, has "house" funds and pays out to winning hands
+ *                  ? might not even need the dealer... could all just be done from the table object and made to look like the dealer is there doing shit
  * 
+ * game table concerns: holds the players and the dealer, holds the hands,  determines winning hands and informs dealer?
+ *                      ? the datastructure that holds the hands will have to be sorted to keep player turns in order, if a player splits, then that hand
+ *                      ? needs to be inserted before the next players hands
  * 
- * game table concerns: holds the players and the dealer,  determines winning hands and informs dealer?
- * 
- * 
- * player concerns: is linked to a hand(s) on the game table, can send "commands" to the dealer/table to perform actions on their hand(s)
+ * player concerns: is linked to a hand(s) on the game table through the hand's uid, can send "commands" to the dealer/table to perform actions on their hand(s)
  * 
  * 
  * 
