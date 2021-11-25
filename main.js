@@ -9,6 +9,15 @@ const cardValues = {
     K: 10,
     Q: 10,
     J: 10,
+    10: 10,
+    9: 9,
+    8: 8,
+    7: 7,
+    6: 6,
+    5: 5,
+    4: 4,
+    3: 3,
+    2: 2,
 }
 
 const symbols = {
@@ -23,9 +32,6 @@ const cardSuits = [ 'SPADE', 'CLUB', 'HEART', 'DIAMOND' ]
 
 
 
-const 
-
-
 class Card {
     constructor( name, suit ) {
         this.name = name
@@ -38,7 +44,6 @@ class Card {
     display() {
         return this.color( this.name + this.symbol )
     }
-
 
     static generateColor = suit => {
         // a switch statement, kinda like an if statement
@@ -75,36 +80,14 @@ class Card {
 
 
 
-class Ace extends Card {
-    constructor( name, suit ) {
-        super( name, suit )
-    }
-
-    reduceValue() {
-        this.value = 1
-    }
-}
-
-class Deck {
-    constructor() {
-
-    }
-}
-
-
-
-
-
 // const deck = cardSuits.map( suit => cardNames.map( name => new Card( name, suit ) ) )
 
-const spades = cardNames.map( name => name === 'A' ? new Ace( name, 'SPADE' ) : new Card( name, 'SPADE' ) )
-const clubs = cardNames.map( name => name === 'A' ? new Ace( name, 'SPADE' ) :  new Card( name, 'CLUB' ) )
-const hearts = cardNames.map( name =>name === 'A' ? new Ace( name, 'SPADE' ) :  new Card( name, 'HEART' ) )
-const diamonds = cardNames.map( name =>name === 'A' ? new Ace( name, 'SPADE' ) :  new Card( name, 'DIAMOND' ) )
+const spades = cardNames.map( name => new Card( name, 'SPADE' ) )
+const clubs = cardNames.map( name =>  new Card( name, 'CLUB' ) )
+const hearts = cardNames.map( name => new Card( name, 'HEART' ) )
+const diamonds = cardNames.map( name => new Card( name, 'DIAMOND' ) )
 
 const deck = [ ...spades, ...clubs, ...hearts, ...diamonds ]
 
-let deckDisplays = deck.map( card => card.display() + " " ).join("")
-
-console.log( deckDisplays)
-
+// console.log( 'DECK :: ', deck )
+module.exports = deck
