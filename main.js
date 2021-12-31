@@ -1,4 +1,4 @@
- colors = require( 'colors' )
+const colors = require( 'colors' )
 
  /**
   * ? this is all just me fucking around and testing shit out. no logic or anything just figuring out data structure
@@ -27,8 +27,7 @@ const symbols = {
     CLUB: '\u2663',
 }
 
-const cardNames = [ 'A', 'K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2' ]
-const cardSuits = [ 'SPADE', 'CLUB', 'HEART', 'DIAMOND' ]
+
 
 
 
@@ -82,12 +81,7 @@ class Card {
 
 // const deck = cardSuits.map( suit => cardNames.map( name => new Card( name, suit ) ) )
 
-const spades = cardNames.map( name => new Card( name, 'SPADE' ) )
-const clubs = cardNames.map( name =>  new Card( name, 'CLUB' ) )
-const hearts = cardNames.map( name => new Card( name, 'HEART' ) )
-const diamonds = cardNames.map( name => new Card( name, 'DIAMOND' ) )
 
-const deck = [ ...spades, ...clubs, ...hearts, ...diamonds ]
 
 // console.log( 'DECK :: ', deck )
 module.exports = deck
